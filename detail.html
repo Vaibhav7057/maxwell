@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product details</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="productDetails"></div>
+    <script>
+      let addProduct = document.querySelector(".productDetails");
+      let productId = new URLSearchParams(window.location.search).get("id");
+      let product = null;
+
+      fetch("https://dummyjson.com/products/" + productId)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          product = res;
+          showDetails();
+        })
+        .catch(
+          (err) =>
+            (addProduct.innerText =
+              "network error occur, please connet to network to see product details")
+        );
+
+      function showDetails() {
+        addProduct.innerHTML = ` <div class="left">
+        <img src = "${product.thumbnail}">
+                <div class="imagebox">
+            <img src = "${product.images[0]}" width='100px' >
+            <img src = "${product.images[1]}" width='100px' >
+            <img src = "${product.images[3]}" width='100px' >
+        </div>
+        </div>
+        <div class="right">
+        <h2>${product.title}</h2>
+        <p ><span>Brand :</span> ${product.brand}</p>
+        <p ><span>Category :</span> ${product.category}</p>
+        <p ><span>Price :</span> ${product.price}</p>
+        <p ><span>Desctription :</span> ${product.description}</p>
+        <p ><span>Ratings :</span> ${product.rating}</p>
+        <p ><span>Discount :</span> ${product.discountPercentage}</p>
+            </div>
+        `;
+      }
+    </script>
+  </body>
+</html>

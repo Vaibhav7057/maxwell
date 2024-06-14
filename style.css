@@ -1,0 +1,148 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100vw;
+    min-height: 100vh;
+    background: white;
+  }
+  
+  .page1 {
+    width: 100%;
+  }
+  
+  .page1 header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(187, 214, 241);
+    align-items: center;
+    width: 100%;
+    column-gap: 2rem;
+    padding:0.7rem 3rem;
+    color: black;
+    position: sticky;
+    top:0;
+    right: 0;
+  }  
+
+.page1 header ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+  }
+  .page1 header ul li {
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .page1 header ul li a{
+    text-decoration: none;
+    color: black;
+  }
+
+
+#products{
+    display: grid;
+    margin-top: 50px;
+    min-height: 50vh;
+    max-width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    padding: 1rem 2rem;
+}
+#products img{
+    aspect-ratio: 2/3;
+    object-fit: contain;
+    width: 200px;
+}
+#products p{
+    margin-top: 5px;
+}
+#products .item{
+    background-color: #eeeee6;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+#products a{
+    text-decoration: none;
+    color: unset;
+}
+
+  footer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 3.5rem;
+    width: 100%;
+    padding: 2rem 13%;
+    background-color: #121b25;
+    color: white;
+  }
+
+  footer li{
+    list-style-type: none;
+    margin-top: 10px;
+  }
+  .content h4{
+    font-weight: 900;
+    font-size: large;
+    color: beige;
+  }
+
+
+
+  .productDetails{
+    padding: 3rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .imagebox img{
+    margin-left: 10px;
+  }
+
+  .right p{
+    margin-top: 10px;
+  }
+  .right span{
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+@media  screen and (max-width:992px) {
+    #products{
+        grid-template-columns: repeat(3,1fr);
+    }
+    footer{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+  @media  screen and (max-width:768px) {
+    .productDetails{
+        flex-direction: column;
+    }
+    #products{
+        display: grid;
+        margin-top: 50px;
+        min-height: 50vh;
+        max-width: 100%;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+        padding: 0.5rem 1rem;
+    }
+
+    #products img{
+        width: 150px;
+    }
+    #products h2{
+        font-size: 20px;
+    }
+    footer{
+        grid-template-columns: repeat(2,1fr);
+    }
+  }
